@@ -11,7 +11,7 @@ public class GuitarTest {
 
     @Before
     public void setUp() throws Exception {
-        guitar = new Guitar(25.00, 35.00, InstrumentType.GUITAR, "Rickenbacker", "Solid Body");
+        guitar = new Guitar(25.00, 35.00, InstrumentType.GUITAR, "Rickenbacker");
     }
 
     @Test
