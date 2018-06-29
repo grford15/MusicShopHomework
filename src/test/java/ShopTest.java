@@ -60,6 +60,6 @@ public class ShopTest {
         shop.addStock(guitar);
         shop.addStock(piano);
         shop.addStock(saxophone);
-        assertEquals(260, shop.);
+        assertEquals(260, shop.possibleProfit(), 0.5);
     }
 }

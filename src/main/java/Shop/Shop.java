@@ -3,6 +3,7 @@ package Shop;
 import Behaviours.ISell;
 import Customers.Customer;
 import Instruments.Guitar;
+import Instruments.Instruments;
 
 import java.util.ArrayList;
 
@@ -44,4 +45,10 @@ public class Shop  {
     }
 
 
+    public double possibleProfit() {
+        int profit = 0;
+        for(ISell instruments : stock){
+            profit += instruments.calculateMarkUp();
+        }
+    return profit;}
 }
