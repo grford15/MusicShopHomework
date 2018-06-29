@@ -18,4 +18,9 @@ public class PianoTest {
     public void canPlay(){
         assertEquals("PIIIAAAANNNOOOOOOO", piano.play());
     }
+
+    @Test
+    public void canCalulateProfit(){
+        assertEquals(199.00, piano.calculateMarkUp(), 0.1);
+    }
 }

@@ -19,4 +19,8 @@ public abstract class Instruments implements ISell {
     public double getRetailPrice() {
         return retailPrice;
     }
+
+    public double getWholesalePrice() {
+        return wholesalePrice;
+    }
 }

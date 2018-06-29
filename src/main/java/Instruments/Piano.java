@@ -10,4 +10,8 @@ public class Piano extends Instruments implements IPlay {
     public String play(){
         return "PIIIAAAANNNOOOOOOO";
     }
+
+    public double calculateMarkUp() {
+        return getRetailPrice() - getWholesalePrice();
+    }
 }

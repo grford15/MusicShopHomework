@@ -42,4 +42,6 @@ public class Shop  {
     public void burnTheShop() {
         stock.clear();
     }
+
+
 }
