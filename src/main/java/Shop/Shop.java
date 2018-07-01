@@ -2,9 +2,12 @@ package Shop;
 
 import Behaviours.ISell;
 import Customers.Customer;
+import Equipment.Equipment;
+import Equipment.GuitarCase;
 import Instruments.Guitar;
 import Instruments.Instruments;
 
+import javax.sound.midi.Instrument;
 import java.util.ArrayList;
 
 public class Shop  {
@@ -17,10 +20,10 @@ public class Shop  {
         this.stock = new ArrayList<ISell>();
     }
 
-    public void sellInstrument(Customer customer, Guitar guitar){
-        if(customer.getWallet() > guitar.getRetailPrice()){
-            customer.getShoppingCart().add(guitar);
-            customer.setWallet(customer.getWallet() - guitar.getRetailPrice());
+    public void sellInstrument(Customer customer, Instruments instrument){
+        if(customer.getWallet() > instrument.getRetailPrice()){
+            customer.getShoppingCart().add(instrument);
+            customer.setWallet(customer.getWallet() - instrument.getRetailPrice());
         }
     }
 
@@ -51,4 +54,11 @@ public class Shop  {
             profit += instruments.calculateMarkUp();
         }
     return profit;}
+
+    public void sellEquipment(Customer customer, Equipment stockItem) {
+        if(customer.getWallet() > stockItem.getRetailPrice()){
+            customer.getShoppingCart().add(stockItem);
+            customer.setWallet(customer.getWallet() - stockItem.getRetailPrice());
+        }
+    }
 }

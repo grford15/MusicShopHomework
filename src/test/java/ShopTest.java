@@ -1,4 +1,5 @@
 import Customers.Customer;
+import Equipment.GuitarCase;
 import Instruments.Guitar;
 import Instruments.Piano;
 import Instruments.Saxophone;
@@ -16,6 +17,7 @@ public class ShopTest {
     Shop shop;
     Piano piano;
     Saxophone saxophone;
+    GuitarCase guitarCase;
 
     @Before
     public void setUp() throws Exception {
@@ -24,6 +26,7 @@ public class ShopTest {
         shop = new Shop("Instruments-R-Us");
         piano = new Piano(800.00, 999.00, InstrumentType.KEYBOARD, "Roland");
         saxophone = new Saxophone(99.00, 150.00, InstrumentType.WOODWIND, "Yamaha");
+        guitarCase = new GuitarCase("G-String Case", 50.00, 65.00);
     }
 
     @Test
@@ -32,6 +35,13 @@ public class ShopTest {
         assertEquals(0, shop.stockCount());
         assertEquals(465.00, customer.getWallet(), 0.1);
         assertEquals(true, customer.getShoppingCart().contains(guitar));
+    }
+
+    @Test
+    public void canSellDifferentItems(){
+        shop.sellInstrument(customer, guitar);
+        shop.sellEquipment(customer, guitarCase);
+        assertEquals(2, customer.getShoppingCart().size());
     }
 
     @Test
