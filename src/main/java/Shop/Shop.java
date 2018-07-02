@@ -21,9 +21,10 @@ public class Shop  {
     }
 
     public void sellInstrument(Customer customer, Instruments instrument){
-        if(customer.getWallet() > instrument.getRetailPrice()){
+        if(stock.contains(instrument) && customer.getWallet() > instrument.getRetailPrice()){
             customer.getShoppingCart().add(instrument);
             customer.setWallet(customer.getWallet() - instrument.getRetailPrice());
+            stock.remove(instrument);
         }
     }
 
@@ -56,9 +57,10 @@ public class Shop  {
     return profit;}
 
     public void sellEquipment(Customer customer, Equipment stockItem) {
-        if(customer.getWallet() > stockItem.getRetailPrice()){
+        if(stock.contains(stockItem) && customer.getWallet() > stockItem.getRetailPrice()){
             customer.getShoppingCart().add(stockItem);
             customer.setWallet(customer.getWallet() - stockItem.getRetailPrice());
+            stock.remove(stockItem);
         }
     }
 }

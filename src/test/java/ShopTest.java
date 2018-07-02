@@ -31,6 +31,7 @@ public class ShopTest {
 
     @Test
     public void canSellToCustomer() {
+        shop.addStock(guitar);
         shop.sellInstrument(customer, guitar);
         assertEquals(0, shop.stockCount());
         assertEquals(465.00, customer.getWallet(), 0.1);
@@ -39,6 +40,8 @@ public class ShopTest {
 
     @Test
     public void canSellDifferentItems(){
+        shop.addStock(guitar);
+        shop.addStock(guitarCase);
         shop.sellInstrument(customer, guitar);
         shop.sellEquipment(customer, guitarCase);
         assertEquals(2, customer.getShoppingCart().size());
